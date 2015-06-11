@@ -28,7 +28,7 @@ namespace PermuteUtil
                     data[i - 1] = data[smallest];
                     data[smallest] = temp;
 
-                    data.Sort(i, data.Count - i, null);
+                    data.Sort(i, data.Count - i, comparer);
                     return true;
                 }
             }
