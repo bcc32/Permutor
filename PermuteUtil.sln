@@ -5,6 +5,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PermuteUtil", "PermuteUtil\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PermuteUtilTest", "PermuteUtilTest\PermuteUtilTest.csproj", "{39CF2130-7042-4BE3-9225-73C6F1809035}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThePermuterator", "ThePermuterator\ThePermuterator.csproj", "{4C61A486-8757-43C7-8E9F-354699FE04AD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AC1024AB-7F89-402E-855D-B9F922964232} = {AC1024AB-7F89-402E-855D-B9F922964232}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +40,16 @@ Global
 		{39CF2130-7042-4BE3-9225-73C6F1809035}.Release|Mixed Platforms.Build.0 = Release|x86
 		{39CF2130-7042-4BE3-9225-73C6F1809035}.Release|x86.ActiveCfg = Release|x86
 		{39CF2130-7042-4BE3-9225-73C6F1809035}.Release|x86.Build.0 = Release|x86
+		{4C61A486-8757-43C7-8E9F-354699FE04AD}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{4C61A486-8757-43C7-8E9F-354699FE04AD}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{4C61A486-8757-43C7-8E9F-354699FE04AD}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{4C61A486-8757-43C7-8E9F-354699FE04AD}.Debug|x86.ActiveCfg = Debug|x86
+		{4C61A486-8757-43C7-8E9F-354699FE04AD}.Debug|x86.Build.0 = Debug|x86
+		{4C61A486-8757-43C7-8E9F-354699FE04AD}.Release|Any CPU.ActiveCfg = Release|x86
+		{4C61A486-8757-43C7-8E9F-354699FE04AD}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{4C61A486-8757-43C7-8E9F-354699FE04AD}.Release|Mixed Platforms.Build.0 = Release|x86
+		{4C61A486-8757-43C7-8E9F-354699FE04AD}.Release|x86.ActiveCfg = Release|x86
+		{4C61A486-8757-43C7-8E9F-354699FE04AD}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
