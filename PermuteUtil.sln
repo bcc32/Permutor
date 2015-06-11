@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PermuteUtil", "PermuteUtil\PermuteUtil.csproj", "{AC1024AB-7F89-402E-855D-B9F922964232}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PermuteUtilTest", "PermuteUtilTest\PermuteUtilTest.csproj", "{39CF2130-7042-4BE3-9225-73C6F1809035}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC1024AB-7F89-402E-855D-B9F922964232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC1024AB-7F89-402E-855D-B9F922964232}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC1024AB-7F89-402E-855D-B9F922964232}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{AC1024AB-7F89-402E-855D-B9F922964232}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{AC1024AB-7F89-402E-855D-B9F922964232}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AC1024AB-7F89-402E-855D-B9F922964232}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC1024AB-7F89-402E-855D-B9F922964232}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC1024AB-7F89-402E-855D-B9F922964232}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{AC1024AB-7F89-402E-855D-B9F922964232}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{AC1024AB-7F89-402E-855D-B9F922964232}.Release|x86.ActiveCfg = Release|Any CPU
+		{39CF2130-7042-4BE3-9225-73C6F1809035}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{39CF2130-7042-4BE3-9225-73C6F1809035}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{39CF2130-7042-4BE3-9225-73C6F1809035}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{39CF2130-7042-4BE3-9225-73C6F1809035}.Debug|x86.ActiveCfg = Debug|x86
+		{39CF2130-7042-4BE3-9225-73C6F1809035}.Debug|x86.Build.0 = Debug|x86
+		{39CF2130-7042-4BE3-9225-73C6F1809035}.Release|Any CPU.ActiveCfg = Release|x86
+		{39CF2130-7042-4BE3-9225-73C6F1809035}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{39CF2130-7042-4BE3-9225-73C6F1809035}.Release|Mixed Platforms.Build.0 = Release|x86
+		{39CF2130-7042-4BE3-9225-73C6F1809035}.Release|x86.ActiveCfg = Release|x86
+		{39CF2130-7042-4BE3-9225-73C6F1809035}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
