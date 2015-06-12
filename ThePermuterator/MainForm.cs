@@ -10,7 +10,7 @@ using PermuteUtil;
 
 namespace ThePermuterator
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private static IComparer<Object> NUMERICAL;
         private static IComparer<Object> LEXICOGRAPHICAL;
@@ -23,7 +23,7 @@ namespace ThePermuterator
         private static Reorderer forwards = Permute.NextPermutation;
         private static Reorderer backwards = Permute.PreviousPermutation;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             NUMERICAL = new NumericalComparer();
