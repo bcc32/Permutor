@@ -17,8 +17,9 @@ namespace ThePermuterator
         private IComparer<String> comparer;
 
         delegate bool Reorderer<T>(ref List<T> data, IComparer<T> comparer);
-        private static Reorderer<String> forwards = Permute.NextPermutation;
-        private static Reorderer<String> backwards = Permute.PreviousPermutation;
+        private static Reorderer<String> FORWARDS = Permute.NextPermutation;
+        private static Reorderer<String> BACKWARDS = Permute.PreviousPermutation;
+        private Reorderer<String> animationDirection;
 
         public MainForm()
         {
@@ -40,12 +41,43 @@ namespace ThePermuterator
 
         private void button_Forwards_Click(object sender, EventArgs e)
         {
-            Reorder(forwards);
+            if (checkBox_animate.Checked)
+            {
+                animationDirection = FORWARDS;
+                animationTimer.Start();
+            }
+            else
+            {
+                Reorder(FORWARDS);
+            }
         }
 
         private void button_Backwards_Click(object sender, EventArgs e)
         {
-            Reorder(backwards);
+            if (checkBox_animate.Checked)
+            {
+                animationDirection = BACKWARDS;
+                animationTimer.Start();
+            }
+            else
+            {
+                Reorder(BACKWARDS);
+            }
+        }
+
+        private void intervalInput_ValueChanged(object sender, EventArgs e)
+        {
+            animationTimer.Interval = (int)intervalInput.Value;
+        }
+
+        private void animationTimer_Tick(object sender, EventArgs e)
+        {
+            Reorder(animationDirection);
+        }
+
+        private void button_stop_Click(object sender, EventArgs e)
+        {
+            animationTimer.Stop();
         }
 
         private void UpdateType()
@@ -83,7 +115,14 @@ namespace ThePermuterator
                 List<String> items = textBox_items.Lines.ToList();
                 if (!del(ref items, comparer))
                 {
-                    MessageBox.Show("No more permutations", "End of permutations");
+                    if (animationTimer.Enabled)
+                    {
+                        animationTimer.Stop();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No more permutations", "End of permutations");
+                    }
                 }
                 textBox_items.Lines = items.Select(a => a.ToString()).ToArray();
             }

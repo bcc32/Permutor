@@ -28,16 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.button_stop = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.intervalInput = new System.Windows.Forms.NumericUpDown();
+            this.checkBox_animate = new System.Windows.Forms.CheckBox();
             this.button_Backwards = new System.Windows.Forms.Button();
             this.button_Forwards = new System.Windows.Forms.Button();
             this.radioButton_lexicographical = new System.Windows.Forms.RadioButton();
             this.radioButton_numerical = new System.Windows.Forms.RadioButton();
             this.textBox_items = new System.Windows.Forms.TextBox();
+            this.animationTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.intervalInput)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -48,6 +55,10 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.button_stop);
+            this.splitContainer1.Panel1.Controls.Add(this.label1);
+            this.splitContainer1.Panel1.Controls.Add(this.intervalInput);
+            this.splitContainer1.Panel1.Controls.Add(this.checkBox_animate);
             this.splitContainer1.Panel1.Controls.Add(this.button_Backwards);
             this.splitContainer1.Panel1.Controls.Add(this.button_Forwards);
             this.splitContainer1.Panel1.Controls.Add(this.radioButton_lexicographical);
@@ -59,6 +70,58 @@
             this.splitContainer1.Size = new System.Drawing.Size(284, 262);
             this.splitContainer1.SplitterDistance = 95;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // button_stop
+            // 
+            this.button_stop.Location = new System.Drawing.Point(6, 175);
+            this.button_stop.Name = "button_stop";
+            this.button_stop.Size = new System.Drawing.Size(86, 23);
+            this.button_stop.TabIndex = 7;
+            this.button_stop.Text = "Stop Animation";
+            this.button_stop.UseVisualStyleBackColor = true;
+            this.button_stop.Click += new System.EventHandler(this.button_stop_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 132);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Interval (ms):";
+            // 
+            // intervalInput
+            // 
+            this.intervalInput.Location = new System.Drawing.Point(12, 148);
+            this.intervalInput.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+            this.intervalInput.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.intervalInput.Name = "intervalInput";
+            this.intervalInput.Size = new System.Drawing.Size(80, 20);
+            this.intervalInput.TabIndex = 5;
+            this.intervalInput.Value = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.intervalInput.ValueChanged += new System.EventHandler(this.intervalInput_ValueChanged);
+            // 
+            // checkBox_animate
+            // 
+            this.checkBox_animate.AutoSize = true;
+            this.checkBox_animate.Location = new System.Drawing.Point(3, 108);
+            this.checkBox_animate.Name = "checkBox_animate";
+            this.checkBox_animate.Size = new System.Drawing.Size(64, 17);
+            this.checkBox_animate.TabIndex = 4;
+            this.checkBox_animate.Text = "Animate";
+            this.checkBox_animate.UseVisualStyleBackColor = true;
             // 
             // button_Backwards
             // 
@@ -112,13 +175,18 @@
             this.textBox_items.Size = new System.Drawing.Size(179, 256);
             this.textBox_items.TabIndex = 0;
             // 
-            // Form1
+            // animationTimer
+            // 
+            this.animationTimer.Interval = 200;
+            this.animationTimer.Tick += new System.EventHandler(this.animationTimer_Tick);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "The Permuterator";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -126,6 +194,7 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.intervalInput)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -138,6 +207,11 @@
         private System.Windows.Forms.RadioButton radioButton_lexicographical;
         private System.Windows.Forms.RadioButton radioButton_numerical;
         private System.Windows.Forms.TextBox textBox_items;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown intervalInput;
+        private System.Windows.Forms.CheckBox checkBox_animate;
+        private System.Windows.Forms.Button button_stop;
+        private System.Windows.Forms.Timer animationTimer;
     }
 }
 
