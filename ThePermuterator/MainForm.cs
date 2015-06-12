@@ -114,7 +114,7 @@ namespace ThePermuterator
         {
             try
             {
-                List<String> items = textBox_items.Lines.ToList();
+                List<String> items = textBox_items.Lines.Where(a => a.Length > 0).ToList();
                 for (int i = 0; i < times; i++)
                 {
                     bool didPermute = del(ref items, comparer);
