@@ -17,66 +17,21 @@ namespace PermuteUtil
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return new PermutationEnumerator(data);
+            return this.GetEnumerator();
         }
 
-        IEnumerator<List<Datum>> IEnumerable<List<Datum>>.GetEnumerator()
+        public IEnumerator<List<Datum>> GetEnumerator()
         {
-            return new PermutationEnumerator(data);
-        }
-
-        class PermutationEnumerator : IEnumerator<List<Datum>>
-        {
-            private List<Datum> _orig;
-            private List<Datum> data;
-            bool started = false;
-
-            public PermutationEnumerator(List<Datum> data)
+            do
             {
-                this._orig = data;
-                this.data = new List<Datum>(_orig);
-            }
-
-            object IEnumerator.Current
-            {
-                get
-                {
-                    return new List<Datum>(data);
-                }
-            }
-
-            void IEnumerator.Reset()
-            {
-                this.data = new List<Datum>(_orig);
-                this.started = false;
-            }
-
-            bool IEnumerator.MoveNext()
-            {
-                if (!started) // enumerator begins one before beginning
-                    return started = true;
-                else
-                    return Permute.NextPermutation(ref data);
-            }
-
-            void IDisposable.Dispose()
-            {
-                // nothing to do
-            }
-
-            List<Datum> IEnumerator<List<Datum>>.Current
-            {
-                get
-                {
-                    return data;
-                }
-            }
+                yield return data;
+            } while (Permute.NextPermutation(ref data));
         }
     }
 
-    public class PermutationsFactory
+    public class ThePermutations
     {
-        public static Permutations<Datum> makePermutations<Datum>(List<Datum> data) where Datum : IComparable
+        public static Permutations<Datum> of<Datum>(List<Datum> data) where Datum : IComparable
         {
             return new Permutations<Datum>(data);
         }

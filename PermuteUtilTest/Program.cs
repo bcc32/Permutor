@@ -17,7 +17,7 @@ namespace PermuteUtilTest
                 digits.Add((char)('0' + i));
             }
 
-            var permutations = PermutationsFactory.makePermutations(digits);
+            var permutations = ThePermutations.of(digits);
             Console.WriteLine(String.Join("", permutations.ElementAt(999999)));
         }
     }
