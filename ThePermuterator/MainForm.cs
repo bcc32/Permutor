@@ -12,22 +12,19 @@ namespace ThePermuterator
 {
     public partial class MainForm : Form
     {
-        private static IComparer<Object> NUMERICAL;
-        private static IComparer<Object> LEXICOGRAPHICAL;
-        private IComparer<Object> comparer;
+        private static IComparer<String> NUMERICAL;
+        private static IComparer<String> LEXICOGRAPHICAL;
+        private IComparer<String> comparer;
 
-        delegate Object InputParser(String line);
-        private InputParser parser;
-
-        delegate bool Reorderer(ref List<Object> data, IComparer<Object> comparer);
-        private static Reorderer forwards = Permute.NextPermutation;
-        private static Reorderer backwards = Permute.PreviousPermutation;
+        delegate bool Reorderer<T>(ref List<T> data, IComparer<T> comparer);
+        private static Reorderer<String> forwards = Permute.NextPermutation;
+        private static Reorderer<String> backwards = Permute.PreviousPermutation;
 
         public MainForm()
         {
             InitializeComponent();
             NUMERICAL = new NumericalComparer();
-            LEXICOGRAPHICAL = new LexicographicalComparer();
+            LEXICOGRAPHICAL = StringComparer.CurrentCulture;
             UpdateType();
         }
 
@@ -54,25 +51,18 @@ namespace ThePermuterator
         private void UpdateType()
         {
             if (radioButton_numerical.Checked)
-            {
                 comparer = NUMERICAL;
-                parser = ParseNumber;
-            }
-            else if (radioButton_numerical.Checked)
-            {
+            else if (radioButton_lexicographical.Checked)
                 comparer = LEXICOGRAPHICAL;
-                parser = ParseString;
-            }
             else
                 throw new WarningException("invalid comparator selected");
         }
 
-        private Object ParseNumber(String line)
+        private static Double ParseNumber(String line)
         {
             try
             {
-                Object o = (Object)Double.Parse(line);
-                return o;
+                return Double.Parse(line);
             }
             catch (FormatException)
             {
@@ -86,16 +76,11 @@ namespace ThePermuterator
             }
         }
 
-        private Object ParseString(String line)
-        {
-            return (Object)line;
-        }
-
-        private void Reorder(Reorderer del)
+        private void Reorder(Reorderer<String> del)
         {
             try
             {
-                List<Object> items = textBox_items.Lines.Select(a => parser(a)).ToList();
+                List<String> items = textBox_items.Lines.ToList();
                 if (!del(ref items, comparer))
                 {
                     MessageBox.Show("No more permutations", "End of permutations");
@@ -111,21 +96,15 @@ namespace ThePermuterator
                 // do nothing
             }
         }
-    }
 
-    class NumericalComparer : IComparer<Object>
-    {
-        int IComparer<Object>.Compare(Object a, Object b)
+        class NumericalComparer : Comparer<String>
         {
-            return Comparer<Double>.Default.Compare((Double)a, (Double)b);
-        }
-    }
-
-    class LexicographicalComparer : IComparer<Object>
-    {
-        int IComparer<Object>.Compare(Object a, Object b)
-        {
-            return Comparer<String>.Default.Compare((String)a, (String)b);
+            override public int Compare(String a, String b)
+            {
+                Double x = ParseNumber(a);
+                Double y = ParseNumber(b);
+                return Comparer<Double>.Default.Compare(x, y);
+            }
         }
     }
 }
