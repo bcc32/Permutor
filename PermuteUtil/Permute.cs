@@ -9,7 +9,7 @@ namespace PermuteUtil
     {
         public static bool NextPermutation<Datum>(ref List<Datum> data) where Datum : IComparable
         {
-            return NextPermutation(ref data, new DefaultComparer<Datum>());
+            return NextPermutation(ref data, Comparer<Datum>.Default);
         }
 
         public static bool NextPermutation<Datum>(ref List<Datum> data, IComparer<Datum> comparer)
@@ -38,47 +38,19 @@ namespace PermuteUtil
 
         public static bool PreviousPermutation<Datum>(ref List<Datum> data) where Datum : IComparable
         {
-            return PreviousPermutation(ref data, new DefaultComparer<Datum>());
+            return PreviousPermutation(ref data, Comparer<Datum>.Default);
         }
 
         public static bool PreviousPermutation<Datum>(ref List<Datum> data, IComparer<Datum> comparer)
         {
-            return NextPermutation(ref data, makeReverseComparer(comparer));
+            return NextPermutation(ref data, new ReverseComparer<Datum>());
         }
 
-        private static IComparer<Datum> makeReverseComparer<Datum>(IComparer<Datum> comparer)
+        class ReverseComparer<Datum> : Comparer<Datum>
         {
-            return new ReverseAnotherComparer<Datum>(comparer);
-        }
-
-        class DefaultComparer<Datum> : IComparer<Datum> where Datum : IComparable
-        {
-            int IComparer<Datum>.Compare(Datum x, Datum y)
+            override public int Compare(Datum x, Datum y)
             {
-                return x.CompareTo(y);
-            }
-        }
-
-        class ReverseComparer<Datum> : IComparer<Datum> where Datum : IComparable
-        {
-            int IComparer<Datum>.Compare(Datum x, Datum y)
-            {
-                return y.CompareTo(x);
-            }
-        }
-
-        class ReverseAnotherComparer<Datum> : IComparer<Datum>
-        {
-            private IComparer<Datum> comparer;
-
-            public ReverseAnotherComparer(IComparer<Datum> comparer)
-            {
-                this.comparer = comparer;
-            }
-
-            int IComparer<Datum>.Compare(Datum x, Datum y)
-            {
-                return comparer.Compare(y, x);
+                return Comparer<Datum>.Default.Compare(y, x);
             }
         }
     }
