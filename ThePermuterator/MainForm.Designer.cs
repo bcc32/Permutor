@@ -41,9 +41,11 @@
             this.radioButton_lexicographical = new System.Windows.Forms.RadioButton();
             this.radioButton_numerical = new System.Windows.Forms.RadioButton();
             this.textBox_items = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.repeatTimes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.intervalInput)).BeginInit();
+            this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +56,7 @@
             // 
             // repeatTimes
             // 
-            this.repeatTimes.Location = new System.Drawing.Point(6, 234);
+            this.repeatTimes.Location = new System.Drawing.Point(9, 241);
             this.repeatTimes.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -77,7 +79,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 218);
+            this.label2.Location = new System.Drawing.Point(13, 225);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 19;
@@ -96,7 +98,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 147);
+            this.label1.Location = new System.Drawing.Point(13, 154);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 17;
@@ -128,7 +130,7 @@
             // checkBox_animate
             // 
             this.checkBox_animate.AutoSize = true;
-            this.checkBox_animate.Location = new System.Drawing.Point(6, 123);
+            this.checkBox_animate.Location = new System.Drawing.Point(13, 130);
             this.checkBox_animate.Name = "checkBox_animate";
             this.checkBox_animate.Size = new System.Drawing.Size(64, 17);
             this.checkBox_animate.TabIndex = 15;
@@ -158,7 +160,7 @@
             // radioButton_lexicographical
             // 
             this.radioButton_lexicographical.AutoSize = true;
-            this.radioButton_lexicographical.Location = new System.Drawing.Point(6, 42);
+            this.radioButton_lexicographical.Location = new System.Drawing.Point(13, 49);
             this.radioButton_lexicographical.Name = "radioButton_lexicographical";
             this.radioButton_lexicographical.Size = new System.Drawing.Size(57, 17);
             this.radioButton_lexicographical.TabIndex = 12;
@@ -170,7 +172,7 @@
             // 
             this.radioButton_numerical.AutoSize = true;
             this.radioButton_numerical.Checked = true;
-            this.radioButton_numerical.Location = new System.Drawing.Point(6, 19);
+            this.radioButton_numerical.Location = new System.Drawing.Point(13, 26);
             this.radioButton_numerical.Name = "radioButton_numerical";
             this.radioButton_numerical.Size = new System.Drawing.Size(67, 17);
             this.radioButton_numerical.TabIndex = 10;
@@ -180,14 +182,29 @@
             // 
             // textBox_items
             // 
-            this.textBox_items.Location = new System.Drawing.Point(124, 12);
+            this.textBox_items.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_items.Location = new System.Drawing.Point(155, 15);
             this.textBox_items.Multiline = true;
             this.textBox_items.Name = "textBox_items";
-            this.textBox_items.Size = new System.Drawing.Size(307, 276);
+            this.textBox_items.Size = new System.Drawing.Size(290, 301);
             this.textBox_items.TabIndex = 11;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(137, 304);
+            this.panel1.TabIndex = 21;
             // 
             // groupBox1
             // 
+            this.groupBox1.AutoSize = true;
             this.groupBox1.Controls.Add(this.radioButton_numerical);
             this.groupBox1.Controls.Add(this.repeatTimes);
             this.groupBox1.Controls.Add(this.radioButton_lexicographical);
@@ -198,9 +215,10 @@
             this.groupBox1.Controls.Add(this.intervalInput);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.checkBox_animate);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(106, 276);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(10);
+            this.groupBox1.Size = new System.Drawing.Size(111, 287);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             // 
@@ -208,13 +226,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(443, 300);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(457, 325);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.textBox_items);
             this.Name = "MainForm";
             this.Text = "The Permuterator";
             ((System.ComponentModel.ISupportInitialize)(this.repeatTimes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.intervalInput)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -236,6 +256,7 @@
         private System.Windows.Forms.RadioButton radioButton_lexicographical;
         private System.Windows.Forms.RadioButton radioButton_numerical;
         private System.Windows.Forms.TextBox textBox_items;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
     }
 }
