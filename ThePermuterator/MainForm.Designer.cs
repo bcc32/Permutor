@@ -40,11 +40,14 @@
             this.radioButton_numerical = new System.Windows.Forms.RadioButton();
             this.textBox_items = new System.Windows.Forms.TextBox();
             this.animationTimer = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.repeatTimes = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.intervalInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repeatTimes)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -55,6 +58,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.repeatTimes);
+            this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.button_stop);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.intervalInput);
@@ -73,9 +78,9 @@
             // 
             // button_stop
             // 
-            this.button_stop.Location = new System.Drawing.Point(6, 175);
+            this.button_stop.Location = new System.Drawing.Point(3, 175);
             this.button_stop.Name = "button_stop";
-            this.button_stop.Size = new System.Drawing.Size(86, 23);
+            this.button_stop.Size = new System.Drawing.Size(89, 23);
             this.button_stop.TabIndex = 7;
             this.button_stop.Text = "Stop Animation";
             this.button_stop.UseVisualStyleBackColor = true;
@@ -92,7 +97,7 @@
             // 
             // intervalInput
             // 
-            this.intervalInput.Location = new System.Drawing.Point(12, 148);
+            this.intervalInput.Location = new System.Drawing.Point(3, 148);
             this.intervalInput.Maximum = new decimal(new int[] {
             5000,
             0,
@@ -104,7 +109,7 @@
             0,
             0});
             this.intervalInput.Name = "intervalInput";
-            this.intervalInput.Size = new System.Drawing.Size(80, 20);
+            this.intervalInput.Size = new System.Drawing.Size(89, 20);
             this.intervalInput.TabIndex = 5;
             this.intervalInput.Value = new decimal(new int[] {
             200,
@@ -180,6 +185,37 @@
             this.animationTimer.Interval = 200;
             this.animationTimer.Tick += new System.EventHandler(this.animationTimer_Tick);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(4, 205);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Repeat:";
+            // 
+            // repeatTimes
+            // 
+            this.repeatTimes.Location = new System.Drawing.Point(3, 222);
+            this.repeatTimes.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.repeatTimes.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.repeatTimes.Name = "repeatTimes";
+            this.repeatTimes.Size = new System.Drawing.Size(89, 20);
+            this.repeatTimes.TabIndex = 9;
+            this.repeatTimes.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,6 +231,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.intervalInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repeatTimes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -212,6 +249,8 @@
         private System.Windows.Forms.CheckBox checkBox_animate;
         private System.Windows.Forms.Button button_stop;
         private System.Windows.Forms.Timer animationTimer;
+        private System.Windows.Forms.NumericUpDown repeatTimes;
+        private System.Windows.Forms.Label label2;
     }
 }
 

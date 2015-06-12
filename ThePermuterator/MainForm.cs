@@ -48,7 +48,8 @@ namespace ThePermuterator
             }
             else
             {
-                Reorder(FORWARDS);
+                int times = (int)repeatTimes.Value;
+                Reorder(FORWARDS, times);
             }
         }
 
@@ -61,7 +62,8 @@ namespace ThePermuterator
             }
             else
             {
-                Reorder(BACKWARDS);
+                int times = (int)repeatTimes.Value;
+                Reorder(BACKWARDS, times);
             }
         }
 
@@ -72,7 +74,7 @@ namespace ThePermuterator
 
         private void animationTimer_Tick(object sender, EventArgs e)
         {
-            Reorder(animationDirection);
+            Reorder(animationDirection, 1);
         }
 
         private void button_stop_Click(object sender, EventArgs e)
@@ -108,20 +110,22 @@ namespace ThePermuterator
             }
         }
 
-        private void Reorder(Reorderer<String> del)
+        private void Reorder(Reorderer<String> del, int times)
         {
             try
             {
                 List<String> items = textBox_items.Lines.ToList();
-                if (!del(ref items, comparer))
+                for (int i = 0; i < times; i++)
                 {
-                    if (animationTimer.Enabled)
+                    bool didPermute = del(ref items, comparer);
+                    if (!didPermute)
                     {
-                        animationTimer.Stop();
-                    }
-                    else
-                    {
-                        MessageBox.Show("No more permutations", "End of permutations");
+                        if (animationTimer.Enabled)
+                            animationTimer.Stop();
+                        else
+                            MessageBox.Show("No more permutations", "End of permutations");
+
+                        break;
                     }
                 }
                 textBox_items.Lines = items.Select(a => a.ToString()).ToArray();
